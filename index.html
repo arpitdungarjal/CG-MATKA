@@ -1,1 +1,1194 @@
 
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CG MATKA Official | India's No.1 Trusted Matka & Gaming Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        darkBg: '#080c14',
+                        cardBg: '#111827',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-subtle': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .neon-glow {
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.4);
+        }
+        .neon-border {
+            border: 2px solid rgba(234, 179, 8, 0.6);
+            box-shadow: inset 0 0 15px rgba(234, 179, 8, 0.2);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+        }
+        .hero-bg {
+            background: radial-gradient(circle at center, #1e1b4b 0%, #080c14 70%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080c14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ca8a04;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- TOP LANGUAGE BAR & MULTI-LANGUAGE SELECTOR -->
+    <div class="bg-yellow-500 text-gray-950 font-bold py-1.5 px-4 text-xs md:text-sm flex justify-between items-center shadow-md relative z-50">
+        <div class="flex items-center space-x-2 animate-pulse">
+            <i class="fa-solid fa-bullhorn text-red-700"></i>
+            <span id="marquee-text">⚡ 100% Safe & Instant Withdrawal Platform | 24x7 Customer Support ⚡</span>
+        </div>
+        <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-globe"></i>
+            <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-gray-900 text-yellow-400 text-xs px-2 py-1 rounded border border-yellow-600 focus:outline-none cursor-pointer">
+                <option value="en">English</option>
+                <option value="te">తెలుగు (Telugu)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+                <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                <option value="ml">മലയാളം (Malayalam)</option>
+                <option value="hi">हिंदी (Hindi)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- WELCOME POPUP BANNER (Triggers on load) -->
+    <div id="welcomePopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-300">
+        <div class="bg-gradient-to-b from-gray-900 via-gray-900 to-indigo-950 border-2 border-yellow-500 rounded-2xl max-w-md w-full p-6 relative neon-glow text-center shadow-2xl animate-float">
+            <button onclick="closePopup()" class="absolute top-3 right-3 text-gray-400 hover:text-white bg-gray-800 hover:bg-red-600 w-8 h-8 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="w-20 h-20 mx-auto mb-4 bg-yellow-500/20 rounded-full flex items-center justify-center border border-yellow-500/50">
+                <i class="fa-solid fa-gift text-yellow-400 text-4xl animate-bounce"></i>
+            </div>
+            <span class="bg-yellow-500 text-gray-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Limited Time Offer</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold font-outfit mt-3 gold-gradient-text" data-i18n="popup_title">GET ₹500 FREE BONUS!</h2>
+            <p class="text-gray-300 text-sm mt-2" data-i18n="popup_desc">Download CG Matka official app now and get instant welcome bonus on your first deposit. Play Kalyan, Sridevi & more!</p>
+            <div class="mt-6 flex flex-col gap-3">
+                <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-extxl font-bold py-3 px-6 rounded-xl shadow-lg hover:scale-105 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> <span data-i18n="download_now">DOWNLOAD APP NOW</span>
+                </a>
+                <button onclick="closePopup()" class="text-gray-400 text-xs hover:underline" data-i18n="close_popup">Continue to website</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIVE WITHDRAWAL & DEPOSIT FLOATING TICKER TOAST -->
+    <div id="liveTickerToast" class="fixed bottom-6 left-6 z-40 bg-gray-900/95 border border-yellow-500/40 backdrop-blur-md rounded-xl p-3 shadow-2xl flex items-center space-x-3 max-w-xs transition-all duration-500 translate-y-20 opacity-0">
+        <div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-indian-rupee-sign text-lg"></i>
+        </div>
+        <div class="text-xs">
+            <p id="tickerName" class="font-bold text-yellow-400">Ramesh from Hyderabad</p>
+            <p id="tickerAction" class="text-gray-300">Successfully Withdrawn <span class="text-green-400 font-semibold">₹18,500</span></p>
+            <span id="tickerTime" class="text-[10px] text-gray-500">Just now</span>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center shadow-lg font-outfit font-black text-2xl text-gray-950">
+                    CG
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black font-outfit tracking-wider gold-gradient-text">CG MATKA</h1>
+                    <p class="text-[10px] text-gray-400 tracking-widest uppercase" data-i18n="official_partner">Official Gaming Hub</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+                <a href="#features" class="hover:text-yellow-400 transition" data-i18n="nav_features">Features</a>
+                <a href="#games" class="hover:text-yellow-400 transition" data-i18n="nav_games">Markets</a>
+                <a href="#proof" class="hover:text-yellow-400 transition" data-i18n="nav_proof">Live Proof</a>
+                <a href="#reviews" class="hover:text-yellow-400 transition" data-i18n="nav_reviews">Reviews</a>
+            </div>
+            <div>
+                <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold px-5 py-2.5 rounded-xl shadow-lg hover:neon-glow hover:scale-105 transition text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-arrow-down"></i> <span data-i18n="download_app">Download APK</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-bg relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Copy & CTAs -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></span>
+                    <span class="text-yellow-400 text-xs font-semibold uppercase tracking-wider" data-i18n="hero_badge">India's Most Trusted & Fastest Payout App</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-black font-outfit tracking-tight leading-tight">
+                    <span data-i18n="hero_title_1">PLAY & WIN BIG ON</span> <br>
+                    <span class="gold-gradient-text drop-shadow-md" data-i18n="hero_title_2">CG MATKA OFFICIAL</span>
+                </h1>
+                
+                <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0" data-i18n="hero_desc">
+                    Experience lightning-fast deposits and 1 minute instant withdrawals. Play Kalyan, Sridevi, Milan Night, Time Bazar & South India special markets with 100% safety guarantee.
+                </p>
+
+                <!-- Key Highlight Badges -->
+                <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+                    <div class="bg-gray-900/80 border border-gray-800 p-3 rounded-xl text-center">
+                        <i class="fa-solid fa-bolt text-yellow-400 text-xl mb-1"></i>
+                        <h4 class="text-xs font-bold text-white" data-i18n="feat_speed">1 Min</h4>
+                        <p class="text-[10px] text-gray-400" data-i18n="feat_speed_sub">Withdrawal</p>
+                    </div>
+                    <div class="bg-gray-900/80 border border-gray-800 p-3 rounded-xl text-center">
+                        <i class="fa-solid fa-shield-halved text-yellow-400 text-xl mb-1"></i>
+                        <h4 class="text-xs font-bold text-white" data-i18n="feat_safe">100% Safe</h4>
+                        <p class="text-[10px] text-gray-400" data-i18n="feat_safe_sub">Secure Gateway</p>
+                    </div>
+                    <div class="bg-gray-900/80 border border-gray-800 p-3 rounded-xl text-center">
+                        <i class="fa-solid fa-headset text-yellow-400 text-xl mb-1"></i>
+                        <h4 class="text-xs font-bold text-white" data-i18n="feat_support">24x7</h4>
+                        <p class="text-[10px] text-gray-400" data-i18n="feat_support_sub">Live Support</p>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="https://sara777matkaa.store/sara777.apk" class="w-full sm:w-auto gold-gradient-bg text-gray-950 font-extrabold text-lg px-8 py-4 rounded-2xl shadow-xl hover:scale-105 transition flex items-center justify-center gap-3 neon-glow">
+                        <i class="fa-solid fa-download text-xl"></i>
+                        <span data-i18n="cta_download">DOWNLOAD APK (24MB)</span>
+                    </a>
+                    <a href="#games" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 border border-yellow-500/40 text-yellow-400 font-bold text-base px-6 py-4 rounded-2xl transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span data-i18n="cta_markets">View All Markets</span>
+                    </a>
+                </div>
+
+                <p class="text-xs text-gray-500 flex items-center justify-center lg:justify-start gap-2 pt-2">
+                    <i class="fa-solid fa-circle-check text-green-500"></i> <span data-i18n="apk_trusted">Verified Secure APK • Android 7.0+ Supported</span>
+                </p>
+            </div>
+
+            <!-- Right Column: Stunning Interactive Mockup / Hero Image -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-3xl blur-xl opacity-30 animate-pulse-slow"></div>
+                <div class="relative bg-gray-900 border-2 border-yellow-500/50 rounded-3xl p-6 shadow-2xl max-w-sm w-full text-center">
+                    
+                    <!-- App Mockup Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-xs font-bold text-yellow-400 tracking-wider">CG MATKA V4.2</span>
+                        <i class="fa-solid fa-wifi text-green-400 text-xs"></i>
+                    </div>
+
+                    <!-- Live App Interface Card inside mockup -->
+                    <div class="bg-gray-950 border border-gray-800 rounded-2xl p-4 mb-6">
+                        <div class="flex justify-between items-center text-xs text-gray-400 mb-2">
+                            <span data-i18n="mockup_wallet">Wallet Balance</span>
+                            <span class="text-green-400 font-bold">Active VIP</span>
+                        </div>
+                        <div class="text-3xl font-black text-yellow-400 font-outfit">₹48,950.00</div>
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <div class="bg-gray-900 p-2 rounded-xl border border-gray-800">
+                                <span class="text-[10px] text-gray-400 block" data-i18n="mockup_deposit">Total Deposit</span>
+                                <span class="text-xs font-bold text-white">₹12,000</span>
+                            </div>
+                            <div class="bg-gray-900 p-2 rounded-xl border border-gray-800">
+                                <span class="text-[10px] text-gray-400 block" data-i18n="mockup_withdrawal">Total Withdrawn</span>
+                                <span class="text-xs font-bold text-green-400">₹60,950</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Market Status List inside Mockup -->
+                    <div class="space-y-3 text-left">
+                        <div class="bg-gray-950/80 p-3 rounded-xl border border-gray-800 flex justify-between items-center">
+                            <div>
+                                <h5 class="text-xs font-bold text-white">KALYAN MAIN</h5>
+                                <p class="text-[10px] text-green-400 font-semibold" data-i18n="market_running">● Market Running</p>
+                            </div>
+                            <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2.5 py-1 rounded-lg font-bold">Play Now</span>
+                        </div>
+                        <div class="bg-gray-950/80 p-3 rounded-xl border border-gray-800 flex justify-between items-center">
+                            <div>
+                                <h5 class="text-xs font-bold text-white">HYDERABAD SPECIAL</h5>
+                                <p class="text-[10px] text-green-400 font-semibold" data-i18n="market_running">● Market Running</p>
+                            </div>
+                            <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2.5 py-1 rounded-lg font-bold">Play Now</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <a href="https://sara777matkaa.store/sara777.apk" class="w-full block bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl shadow-lg transition text-sm">
+                            <i class="fa-solid fa-bolt"></i> <span data-i18n="mockup_fast_download">Instant APK Download</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE STATS BANNER -->
+    <section class="bg-gradient-to-r from-gray-900 via-indigo-950 to-gray-900 border-b border-gray-800 py-10 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-4 bg-gray-900/60 rounded-2xl border border-gray-800">
+                <i class="fa-solid fa-users text-yellow-400 text-3xl mb-2"></i>
+                <h3 class="text-2xl md:text-3xl font-black font-outfit text-white">5.5 Lakh+</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="stat_players">Active Players</p>
+            </div>
+            <div class="p-4 bg-gray-900/60 rounded-2xl border border-gray-800">
+                <i class="fa-solid fa-indian-rupee-sign text-yellow-400 text-3xl mb-2"></i>
+                <h3 class="text-2xl md:text-3xl font-black font-outfit text-white">₹10 Crore+</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="stat_payouts">Monthly Payouts</p>
+            </div>
+            <div class="p-4 bg-gray-900/60 rounded-2xl border border-gray-800">
+                <i class="fa-solid fa-stopwatch text-yellow-400 text-3xl mb-2"></i>
+                <h3 class="text-2xl md:text-3xl font-black font-outfit text-white">60 Seconds</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="stat_withdrawal">Average Withdrawal</p>
+            </div>
+            <div class="p-4 bg-gray-900/60 rounded-2xl border border-gray-800">
+                <i class="fa-solid fa-award text-yellow-400 text-3xl mb-2"></i>
+                <h3 class="text-2xl md:text-3xl font-black font-outfit text-white">100% Secure</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="stat_secure">Trusted Platform</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOUTH INDIA SPECIAL MARKETS & POPULAR GAMES SECTION -->
+    <section id="games" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-yellow-400 font-bold text-xs uppercase tracking-widest bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/30" data-i18n="section_markets_tag">Live Gaming Markets</span>
+            <h2 class="text-3xl md:text-5xl font-black font-outfit mt-3" data-i18n="section_markets_title">TOP SOUTH & ALL INDIA MARKETS</h2>
+            <p class="text-gray-400 text-sm mt-3" data-i18n="section_markets_desc">Play your favorite market with highest rates and assured instant payouts across Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, and Kerala.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Market Card 1 -->
+            <div class="bg-gray-900 border border-gray-800 hover:border-yellow-500/60 rounded-3xl p-6 transition duration-300 hover:neon-glow group">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-gray-950 font-black text-xs px-3 py-1 rounded-full" data-i18n="badge_live">LIVE NOW</span>
+                    <span class="text-green-400 text-xs font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> 99.8% Return</span>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white group-hover:text-yellow-400 transition">KALYAN MAIN</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="market_kalyan_desc">India's most popular daily matka market with record jackpot prizes.</p>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block" data-i18n="rate_label">Winning Rate</span>
+                        <span class="text-yellow-400 font-bold text-sm">1 : 95 Rate</span>
+                    </div>
+                    <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow hover:scale-105 transition" data-i18n="play_btn">Play Now</a>
+                </div>
+            </div>
+
+            <!-- Market Card 2 -->
+            <div class="bg-gray-900 border border-gray-800 hover:border-yellow-500/60 rounded-3xl p-6 transition duration-300 hover:neon-glow group">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-gray-950 font-black text-xs px-3 py-1 rounded-full" data-i18n="badge_live">LIVE NOW</span>
+                    <span class="text-green-400 text-xs font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> Special South</span>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white group-hover:text-yellow-400 transition">HYDERABAD BAZAR</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="market_hyd_desc">Exclusive high-frequency draws tailored for players in Andhra & Telangana.</p>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block" data-i18n="rate_label">Winning Rate</span>
+                        <span class="text-yellow-400 font-bold text-sm">1 : 95 Rate</span>
+                    </div>
+                    <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow hover:scale-105 transition" data-i18n="play_btn">Play Now</a>
+                </div>
+            </div>
+
+            <!-- Market Card 3 -->
+            <div class="bg-gray-900 border border-gray-800 hover:border-yellow-500/60 rounded-3xl p-6 transition duration-300 hover:neon-glow group">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-gray-950 font-black text-xs px-3 py-1 rounded-full" data-i18n="badge_live">LIVE NOW</span>
+                    <span class="text-green-400 text-xs font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> 99.8% Return</span>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white group-hover:text-yellow-400 transition">SRIDEVI / TIME BAZAR</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="market_sridevi_desc">Fast afternoon sessions with quick result declarations and instant payouts.</p>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block" data-i18n="rate_label">Winning Rate</span>
+                        <span class="text-yellow-400 font-bold text-sm">1 : 95 Rate</span>
+                    </div>
+                    <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow hover:scale-105 transition" data-i18n="play_btn">Play Now</a>
+                </div>
+            </div>
+
+            <!-- Market Card 4 -->
+            <div class="bg-gray-900 border border-gray-800 hover:border-yellow-500/60 rounded-3xl p-6 transition duration-300 hover:neon-glow group">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-gray-950 font-black text-xs px-3 py-1 rounded-full" data-i18n="badge_live">LIVE NOW</span>
+                    <span class="text-green-400 text-xs font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> Popular</span>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white group-hover:text-yellow-400 transition">MILAN NIGHT / DAY</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="market_milan_desc">High stakes evening session trusted by lakhs of regular daily players.</p>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block" data-i18n="rate_label">Winning Rate</span>
+                        <span class="text-yellow-400 font-bold text-sm">1 : 95 Rate</span>
+                    </div>
+                    <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow hover:scale-105 transition" data-i18n="play_btn">Play Now</a>
+                </div>
+            </div>
+
+            <!-- Market Card 5 -->
+            <div class="bg-gray-900 border border-gray-800 hover:border-yellow-500/60 rounded-3xl p-6 transition duration-300 hover:neon-glow group">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-gray-950 font-black text-xs px-3 py-1 rounded-full" data-i18n="badge_live">LIVE NOW</span>
+                    <span class="text-green-400 text-xs font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> Southern Hit</span>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white group-hover:text-yellow-400 transition">CHENNAI KING</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="market_chennai_desc">Dedicated regional market with customized local timing and expert support.</p>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block" data-i18n="rate_label">Winning Rate</span>
+                        <span class="text-yellow-400 font-bold text-sm">1 : 95 Rate</span>
+                    </div>
+                    <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow hover:scale-105 transition" data-i18n="play_btn">Play Now</a>
+                </div>
+            </div>
+
+            <!-- Market Card 6 -->
+            <div class="bg-gray-900 border border-gray-800 hover:border-yellow-500/60 rounded-3xl p-6 transition duration-300 hover:neon-glow group">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-gray-950 font-black text-xs px-3 py-1 rounded-full" data-i18n="badge_live">LIVE NOW</span>
+                    <span class="text-green-400 text-xs font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> VIP Special</span>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white group-hover:text-yellow-400 transition">RAJDHANI BAZAR</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="market_rajdhani_desc">Premium night market featuring massive jackpot multipliers and bonus rewards.</p>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block" data-i18n="rate_label">Winning Rate</span>
+                        <span class="text-yellow-400 font-bold text-sm">1 : 95 Rate</span>
+                    </div>
+                    <a href="https://sara777matkaa.store/sara777.apk" class="gold-gradient-bg text-gray-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow hover:scale-105 transition" data-i18n="play_btn">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE WITHDRAWAL & DEPOSIT PROOF WALL -->
+    <section id="proof" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50 border-t border-b border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-yellow-400 font-bold text-xs uppercase tracking-widest bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/30" data-i18n="proof_tag">Real Payout Wall</span>
+                <h2 class="text-3xl md:text-5xl font-black font-outfit mt-3" data-i18n="proof_title">RECENT WINNER WITHDRAWALS</h2>
+                <p class="text-gray-400 text-sm mt-3" data-i18n="proof_desc">Check out real-time payouts transferred directly to our players' UPI and bank accounts today.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Proof Item 1 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative overflow-hidden">
+                    <div class="absolute top-3 right-3 text-green-500 text-xs font-bold bg-green-500/10 px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-circle-check"></i> Success
+                    </div>
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center font-outfit text-lg">RV</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Ravi Varma</h4>
+                            <p class="text-[10px] text-gray-400">Hyderabad, TS</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-950 p-3 rounded-xl mb-3 border border-gray-800 flex justify-between items-center">
+                        <span class="text-xs text-gray-400" data-i18n="amount_label">Withdrawn</span>
+                        <span class="text-green-400 font-black text-base">₹24,500</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-gray-500">
+                        <span>UPI / PhonePe</span>
+                        <span>2 mins ago</span>
+                    </div>
+                </div>
+
+                <!-- Proof Item 2 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative overflow-hidden">
+                    <div class="absolute top-3 right-3 text-green-500 text-xs font-bold bg-green-500/10 px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-circle-check"></i> Success
+                    </div>
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center font-outfit text-lg">SK</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Suresh Kumar</h4>
+                            <p class="text-[10px] text-gray-400">Bengaluru, KA</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-950 p-3 rounded-xl mb-3 border border-gray-800 flex justify-between items-center">
+                        <span class="text-xs text-gray-400" data-i18n="amount_label">Withdrawn</span>
+                        <span class="text-green-400 font-black text-base">₹42,000</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-gray-500">
+                        <span>Google Pay / UPI</span>
+                        <span>5 mins ago</span>
+                    </div>
+                </div>
+
+                <!-- Proof Item 3 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative overflow-hidden">
+                    <div class="absolute top-3 right-3 text-green-500 text-xs font-bold bg-green-500/10 px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-circle-check"></i> Success
+                    </div>
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center font-outfit text-lg">MR</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Murugan R.</h4>
+                            <p class="text-[10px] text-gray-400">Chennai, TN</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-950 p-3 rounded-xl mb-3 border border-gray-800 flex justify-between items-center">
+                        <span class="text-xs text-gray-400" data-i18n="amount_label">Withdrawn</span>
+                        <span class="text-green-400 font-black text-base">₹15,800</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-gray-500">
+                        <span>Paytm UPI</span>
+                        <span>8 mins ago</span>
+                    </div>
+                </div>
+
+                <!-- Proof Item 4 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 relative overflow-hidden">
+                    <div class="absolute top-3 right-3 text-green-500 text-xs font-bold bg-green-500/10 px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-circle-check"></i> Success
+                    </div>
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center font-outfit text-lg">AN</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Anil Naik</h4>
+                            <p class="text-[10px] text-gray-400">Visakhapatnam, AP</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-950 p-3 rounded-xl mb-3 border border-gray-800 flex justify-between items-center">
+                        <span class="text-xs text-gray-400" data-i18n="amount_label">Withdrawn</span>
+                        <span class="text-green-400 font-black text-base">₹78,500</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-gray-500">
+                        <span>Bank Transfer</span>
+                        <span>12 mins ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US (SHOCKING FEATURES) -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-yellow-400 font-bold text-xs uppercase tracking-widest bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/30" data-i18n="why_tag">Unmatched Advantage</span>
+            <h2 class="text-3xl md:text-5xl font-black font-outfit mt-3" data-i18n="why_title">WHY CG MATKA IS NEXT LEVEL</h2>
+            <p class="text-gray-400 text-sm mt-3" data-i18n="why_desc">We provide unmatched features designed for professional and casual players alike with 100% security.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl hover:border-yellow-500/50 transition">
+                <div class="w-14 h-14 rounded-2xl gold-gradient-bg flex items-center justify-center text-gray-950 text-2xl font-bold mb-6 shadow-lg">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white mb-2" data-i18n="feat_card1_title">1-Minute Instant Payouts</h3>
+                <p class="text-gray-400 text-sm" data-i18n="feat_card1_desc">Request a withdrawal anytime 24x7 and receive funds directly in your PhonePe, Google Pay, or bank account within 60 seconds.</p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl hover:border-yellow-500/50 transition">
+                <div class="w-14 h-14 rounded-2xl gold-gradient-bg flex items-center justify-center text-gray-950 text-2xl font-bold mb-6 shadow-lg">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white mb-2" data-i18n="feat_card2_title">Multi-Language Support</h3>
+                <p class="text-gray-400 text-sm" data-i18n="feat_card2_desc">Fully localized in Telugu, Tamil, Kannada, Malayalam, Hindi, and English with dedicated regional support managers available on WhatsApp.</p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl hover:border-yellow-500/50 transition">
+                <div class="w-14 h-14 rounded-2xl gold-gradient-bg flex items-center justify-center text-gray-950 text-2xl font-bold mb-6 shadow-lg">
+                    <i class="fa-solid fa-shield-cat"></i>
+                </div>
+                <h3 class="text-xl font-bold font-outfit text-white mb-2" data-i18n="feat_card3_title">100% Safe & Anti-Cheat</h3>
+                <p class="text-gray-400 text-sm" data-i18n="feat_card3_desc">Bank-grade 256-bit SSL encryption and strict anti-fraud verification ensure complete safety of your deposits and game data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS / REVIEWS -->
+    <section id="reviews" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/40 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-yellow-400 font-bold text-xs uppercase tracking-widest bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/30" data-i18n="reviews_tag">Player Testimonials</span>
+                <h2 class="text-3xl md:text-5xl font-black font-outfit mt-3" data-i18n="reviews_title">WHAT SOUTH INDIA PLAYERS SAY</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 border border-gray-800 p-6 rounded-3xl">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mb-4" data-i18n="rev_1">"Best matka app in Telugu states! Withdrawal comes within 1 minute every single time. Totally trustable."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center">K</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Kiran Reddy</h4>
+                            <p class="text-[10px] text-gray-400">Warangal, Telangana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border border-gray-800 p-6 rounded-3xl">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mb-4" data-i18n="rev_2">"Super app with easy payment gateway. Telugu support team is very helpful on WhatsApp."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center">S</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Senthil Kumar</h4>
+                            <p class="text-[10px] text-gray-400">Coimbatore, Tamil Nadu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border border-gray-800 p-6 rounded-3xl">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mb-4" data-i18n="rev_3">"High rates and instant deposits. I won ₹35,000 yesterday and got money in bank immediately."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500 text-gray-950 font-bold flex items-center justify-center">P</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Prakash Hegde</h4>
+                            <p class="text-[10px] text-gray-400">Hubli, Karnataka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL MASSIVE CTA BANNER -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
+        <div class="bg-gradient-to-r from-yellow-600 via-amber-500 to-yellow-500 rounded-3xl p-8 md:p-14 text-gray-950 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <span class="bg-gray-950 text-yellow-400 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest shadow" data-i18n="footer_banner_tag">Join 5,50,000+ Winners</span>
+            <h2 class="text-3xl md:text-5xl font-black font-outfit mt-4" data-i18n="footer_banner_title">START WINNING TODAY WITH CG MATKA</h2>
+            <p class="text-gray-900 text-base md:text-lg max-w-2xl mx-auto mt-3 font-medium" data-i18n="footer_banner_desc">Download the official application now, claim your free welcome bonus, and experience the fastest gaming platform in India.</p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://sara777matkaa.store/sara777.apk" class="bg-gray-950 hover:bg-gray-900 text-yellow-400 font-extrabold text-lg px-8 py-4 rounded-2xl shadow-xl hover:scale-105 transition flex items-center gap-3">
+                    <i class="fa-solid fa-download"></i> <span data-i18n="download_apk_btn">DOWNLOAD OFFICIAL APK</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-gray-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800 text-xs">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl gold-gradient-bg flex items-center justify-center font-outfit font-black text-xl text-gray-950">CG</div>
+                    <span class="text-lg font-black text-white font-outfit">CG MATKA</span>
+                </div>
+                <p class="text-gray-400 leading-relaxed" data-i18n="footer_about">India's most trusted online gaming and entertainment platform offering secure transactions and lightning-fast payouts.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider" data-i18n="footer_markets">Top Markets</h4>
+                <ul class="space-y-2">
+                    <li><a href="#games" class="hover:text-yellow-400 transition">Kalyan Main</a></li>
+                    <li><a href="#games" class="hover:text-yellow-400 transition">Hyderabad Special</a></li>
+                    <li><a href="#games" class="hover:text-yellow-400 transition">Sridevi / Time Bazar</a></li>
+                    <li><a href="#games" class="hover:text-yellow-400 transition">Milan Night & Day</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider" data-i18n="footer_support">Support & Help</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-yellow-400 transition" data-i18n="footer_whatsapp">24x7 WhatsApp Support</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition" data-i18n="footer_faq">FAQ & Rules</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition" data-i18n="footer_terms">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider" data-i18n="footer_disclaimer_title">Disclaimer</h4>
+                <p class="text-[10px] text-gray-500 leading-relaxed" data-i18n="footer_disclaimer_text">This platform involves financial risk. Please play responsibly and at your own risk. 18+ only. Available across Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, and rest of India.</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-6 border-t border-gray-900 text-center text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 CG Matka Official. All Rights Reserved.</p>
+            <p class="text-yellow-500/80 font-semibold" data-i18n="footer_secure_badge">🔒 256-Bit SSL Encrypted Official Site</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Close Popup
+        function closePopup() {
+            const popup = document.getElementById('welcomePopup');
+            popup.style.opacity = '0';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
+        }
+
+        // Automatic Live Withdrawal Toast Rotator
+        const names = [
+            { name: "Ramesh from Hyderabad", amount: "₹18,500", method: "PhonePe UPI" },
+            { name: "Venkatesh from Warangal", amount: "₹34,000", method: "Google Pay" },
+            { name: "Suresh from Bengaluru", amount: "₹12,500", method: "Paytm UPI" },
+            { name: "Karthik from Chennai", amount: "₹55,000", method: "Direct Bank Transfer" },
+            { name: "Raju from Visakhapatnam", amount: "₹22,000", method: "PhonePe UPI" },
+            { name: "Anand from Vijayawada", amount: "₹45,000", method: "Google Pay" }
+        ];
+
+        function showLiveTicker() {
+            const toast = document.getElementById('liveTickerToast');
+            const randomItem = names[Math.floor(Math.random() * names.length)];
+            
+            document.getElementById('tickerName').innerText = randomItem.name;
+            document.getElementById('tickerAction').innerHTML = `Successfully Withdrawn <span class="text-green-400 font-semibold">${randomItem.amount}</span> via ${randomItem.method}`;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4500);
+        }
+
+        // Trigger live ticker every 8 seconds
+        setInterval(showLiveTicker, 8000);
+        setTimeout(showLiveTicker, 2500); // Initial trigger
+
+        // Multi-Language Translations Dictionary
+        const translations = {
+            en: {
+                marquee: "⚡ 100% Safe & Instant Withdrawal Platform | 24x7 Customer Support ⚡",
+                popup_title: "GET ₹500 FREE BONUS!",
+                popup_desc: "Download CG Matka official app now and get instant welcome bonus on your first deposit. Play Kalyan, Sridevi & more!",
+                download_now: "DOWNLOAD APP NOW",
+                close_popup: "Continue to website",
+                official_partner: "Official Gaming Hub",
+                nav_features: "Features",
+                nav_games: "Markets",
+                nav_proof: "Live Proof",
+                nav_reviews: "Reviews",
+                download_app: "Download APK",
+                hero_badge: "India's Most Trusted & Fastest Payout App",
+                hero_title_1: "PLAY & WIN BIG ON",
+                hero_title_2: "CG MATKA OFFICIAL",
+                hero_desc: "Experience lightning-fast deposits and 1 minute instant withdrawals. Play Kalyan, Sridevi, Milan Night, Time Bazar & South India special markets with 100% safety guarantee.",
+                feat_speed: "1 Min",
+                feat_speed_sub: "Withdrawal",
+                feat_safe: "100% Safe",
+                feat_safe_sub: "Secure Gateway",
+                feat_support: "24x7",
+                feat_support_sub: "Live Support",
+                cta_download: "DOWNLOAD APK (24MB)",
+                cta_markets: "View All Markets",
+                apk_trusted: "Verified Secure APK • Android 7.0+ Supported",
+                mockup_wallet: "Wallet Balance",
+                mockup_deposit: "Total Deposit",
+                mockup_withdrawal: "Total Withdrawn",
+                market_running: "● Market Running",
+                mockup_fast_download: "Instant APK Download",
+                stat_players: "Active Players",
+                stat_payouts: "Monthly Payouts",
+                stat_withdrawal: "Average Withdrawal",
+                stat_secure: "Trusted Platform",
+                section_markets_tag: "Live Gaming Markets",
+                section_markets_title: "TOP SOUTH & ALL INDIA MARKETS",
+                section_markets_desc: "Play your favorite market with highest rates and assured instant payouts across Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, and Kerala.",
+                badge_live: "LIVE NOW",
+                market_kalyan_desc: "India's most popular daily matka market with record jackpot prizes.",
+                rate_label: "Winning Rate",
+                play_btn: "Play Now",
+                market_hyd_desc: "Exclusive high-frequency draws tailored for players in Andhra & Telangana.",
+                market_sridevi_desc: "Fast afternoon sessions with quick result declarations and instant payouts.",
+                market_milan_desc: "High stakes evening session trusted by lakhs of regular daily players.",
+                market_chennai_desc: "Dedicated regional market with customized local timing and expert support.",
+                market_rajdhani_desc: "Premium night market featuring massive jackpot multipliers and bonus rewards.",
+                proof_tag: "Real Payout Wall",
+                proof_title: "RECENT WINNER WITHDRAWALS",
+                proof_desc: "Check out real-time payouts transferred directly to our players' UPI and bank accounts today.",
+                amount_label: "Withdrawn",
+                why_tag: "Unmatched Advantage",
+                why_title: "WHY CG MATKA IS NEXT LEVEL",
+                why_desc: "We provide unmatched features designed for professional and casual players alike with 100% security.",
+                feat_card1_title: "1-Minute Instant Payouts",
+                feat_card1_desc: "Request a withdrawal anytime 24x7 and receive funds directly in your PhonePe, Google Pay, or bank account within 60 seconds.",
+                feat_card2_title: "Multi-Language Support",
+                feat_card2_desc: "Fully localized in Telugu, Tamil, Kannada, Malayalam, Hindi, and English with dedicated regional support managers available on WhatsApp.",
+                feat_card3_title: "100% Safe & Anti-Cheat",
+                feat_card3_desc: "Bank-grade 256-bit SSL encryption and strict anti-fraud verification ensure complete safety of your deposits and game data.",
+                reviews_tag: "Player Testimonials",
+                reviews_title: "WHAT SOUTH INDIA PLAYERS SAY",
+                rev_1: "\"Best matka app in Telugu states! Withdrawal comes within 1 minute every single time. Totally trustable.\"",
+                rev_2: "\"Super app with easy payment gateway. Telugu support team is very helpful on WhatsApp.\"",
+                rev_3: "\"High rates and instant deposits. I won ₹35,000 yesterday and got money in bank immediately.\"",
+                footer_banner_tag: "Join 5,50,000+ Winners",
+                footer_banner_title: "START WINNING TODAY WITH CG MATKA",
+                footer_banner_desc: "Download the official application now, claim your free welcome bonus, and experience the fastest gaming platform in India.",
+                download_apk_btn: "DOWNLOAD OFFICIAL APK",
+                footer_about: "India's most trusted online gaming and entertainment platform offering secure transactions and lightning-fast payouts.",
+                footer_markets: "Top Markets",
+                footer_support: "Support & Help",
+                footer_whatsapp: "24x7 WhatsApp Support",
+                footer_faq: "FAQ & Rules",
+                footer_terms: "Terms & Conditions",
+                footer_disclaimer_title: "Disclaimer",
+                footer_disclaimer_text: "This platform involves financial risk. Please play responsibly and at your own risk. 18+ only. Available across Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, and rest of India.",
+                footer_secure_badge: "🔒 256-Bit SSL Encrypted Official Site"
+            },
+            te: {
+                marquee: "⚡ 100% సురక్షితమైన & తక్షణ విత్‌డ్రా ప్లాట్‌ఫారమ్ | 24x7 కస్టమర్ సపోర్ట్ ⚡",
+                popup_title: "₹500 ఉచిత బోనస్ పొందండి!",
+                popup_desc: "ఇప్పుడే CG Matka అధికారిక యాప్‌ని డౌన్‌లోడ్ చేయండి మరియు మీ మొదటి డిపాజిట్‌పై ఉచిత బోనస్ పొందండి!",
+                download_now: "యాప్ డౌన్‌లోడ్ చేయండి",
+                close_popup: "వెబ్‌సైట్‌కి వెళ్ళండి",
+                official_partner: "అధికారిక గేమింగ్ హబ్",
+                nav_features: "ఫీచర్లు",
+                nav_games: "మార్కెట్లు",
+                nav_proof: "లైవ్ ప్రూఫ్",
+                nav_reviews: "సమీక్షలు",
+                download_app: "APK డౌన్‌లోడ్",
+                hero_badge: "భారతదేశపు అత్యంత విశ్వసనీయ & వేగవంతమైన యాప్",
+                hero_title_1: "ఆడి పెద్ద మొత్తంలో గెలవండి",
+                hero_title_2: "CG మట్కా అఫీషియల్",
+                hero_desc: "కేవలం 1 నిమిషంలో ఇన్‌స్టంట్ విత్‌డ్రా పొందండి. కళ్యాణ్, శ్రీదేవి, మిలన్ నైట్ & సౌత్ ఇండియా స్పెషల్ మార్కెట్లు.",
+                feat_speed: "1 నిమిషం",
+                feat_speed_sub: "విత్‌డ్రా",
+                feat_safe: "100% సురక్షితం",
+                feat_safe_sub: "సేఫ్ గేట్‌వే",
+                feat_support: "24x7",
+                feat_support_sub: "లైవ్ సపోర్ట్",
+                cta_download: "APK డౌన్‌లోడ్ (24MB)",
+                cta_markets: "మార్కెట్లను చూడండి",
+                apk_trusted: "వెరిఫైడ్ సెక్యూర్ APK • ఆండ్రాయిడ్ 7.0+",
+                mockup_wallet: "వాలెట్ బ్యాలెన్స్",
+                mockup_deposit: "మొత్తం డిపాజిట్",
+                mockup_withdrawal: "మొత్తం విత్‌డ్రా",
+                market_running: "● మార్కెట్ రన్నింగ్",
+                mockup_fast_download: "ఇన్‌స్టంట్ APK డౌన్‌లోడ్",
+                stat_players: "యాక్టివ్ ప్లేయర్స్",
+                stat_payouts: "నెలవారీ పేఅవుట్లు",
+                stat_withdrawal: "సగటు విత్‌డ్రా",
+                stat_secure: "నమ్మకమైన ప్లాట్‌ఫారమ్",
+                section_markets_tag: "లైవ్ గేమింగ్ మార్కెట్లు",
+                section_markets_title: "టాప్ సౌత్ & ఆల్ ఇండియా మార్కెట్లు",
+                section_markets_desc: "ఆంధ్రప్రదేశ్, తెలంగాణ, కర్ణాటక, తమిళనాడు మరియు కేరళలో అత్యధిక రేట్లు మరియు ఇన్‌స్టంట్ పేఅవుట్లతో ఆడండి.",
+                badge_live: "లైవ్ నౌ",
+                market_kalyan_desc: "రికార్డు స్థాయి జాక్‌పాట్ బహుమతులతో అత్యంత ప్రజాదరణ పొందిన డైలీ మార్కెట్.",
+                rate_label: "విన్నింగ్ రేట్",
+                play_btn: "ఇప్పుడే ఆడండి",
+                market_hyd_desc: "ఆంధ్ర & తెలంగాణ ఆటగాళ్ల కోసం ప్రత్యేక హై-ఫ్రీక్వెన్సీ డ్రాలు.",
+                market_sridevi_desc: "వేగవంతమైన మధ్యాహ్న సెషన్స్ మరియు తక్షణ ఫలితాలు.",
+                market_milan_desc: "లక్షలాది మంది నమ్మే హై స్టేక్స్ ఈవెనింగ్ సెషన్.",
+                market_chennai_desc: "స్థానిక సమయాలతో ప్రత్యేక ప్రాంతీయ మార్కెట్.",
+                market_rajdhani_desc: "భారీ జాక్‌పాట్ మల్టిప్లైయర్స్ ఉన్న ప్రీమియం నైట్ మార్కెట్.",
+                proof_tag: "రియల్ పేఅవుట్ వాల్",
+                proof_title: "ఇటీవలి విజేతల విత్‌డ్రాలు",
+                proof_desc: "నేడు మా ఆటగాళ్ల UPI మరియు బ్యాంక్ ఖాతాలకు నేరుగా బదిలీ చేయబడిన నిజ-సమయ పేఅవుట్లు.",
+                amount_label: "విత్‌డ్రా",
+                why_tag: "ప్రత్యేక ప్రయోజనాలు",
+                why_title: "CG మట్కా ఎందుకు నెక్స్ట్ లెవెల్?",
+                why_desc: "100% భద్రతతో ప్రొఫెషనల్ మరియు సాధారణ ఆటగాళ్ల కోసం ప్రత్యేక ఫీచర్లు.",
+                feat_card1_title: "1-నిమిషం ఇన్‌స్టంట్ పేఅవుట్లు",
+                feat_card1_desc: "ఎప్పుడైనా విత్‌డ్రా అభ్యర్థించండి, 60 సెకన్లలోపు మీ PhonePe లేదా Google Payకి డబ్బు పొందండి.",
+                feat_card2_title: "బహుళ భాషల మద్దతు",
+                feat_card2_desc: "తెలుగు, తమిళం, కన్నడ, మలయాళం, హిందీ మరియు ఇంగ్లీషులో అందుబాటులో ఉంది.",
+                feat_card3_title: "100% సురక్షితం & యాంటీ-చీట్",
+                feat_card3_desc: "బ్యాంక్-గ్రేడ్ 256-బిట్ SSL ఎన్క్రిప్షన్‌తో పూర్తి భద్రత.",
+                reviews_tag: "ప్లేయర్ టెస్టిమోనియల్స్",
+                reviews_title: "సౌత్ ఇండియా ఆటగాళ్లు ఏమంటున్నారు?",
+                rev_1: "\"తెలుగు రాష్ట్రాల్లో అత్య ఉత్తమ మట్కా యాప్! ప్రతిసారీ 1 నిమిషంలో విత్‌డ్రా వస్తుంది. పూర్తిగా నమ్మదగినది.\"",
+                rev_2: "\"సులభమైన పేమెంట్ గేట్‌వేతో సూపర్ యాప్. తెలుగు సపోర్ట్ టీమ్ చాలా సహాయపడుతుంది.\"",
+                rev_3: "\"అధిక రేట్లు మరియు తక్షణ డిపాజిట్లు. నేను నిన్న ₹35,000 గెలుచుకున్నాను.\"",
+                footer_banner_tag: "5,50,000+ విజేతలతో చేరండి",
+                footer_banner_title: "ఈరోజే CG మట్కాతో గెలవడం ప్రారంభించండి",
+                footer_banner_desc: "అధికారిక అప్లికేషన్‌ను డౌన్‌లోడ్ చేసుకోండి, మీ ఉచిత స్వాగత బోనస్‌ను పొందండి.",
+                download_apk_btn: "అధికారిక APK డౌన్‌లోడ్",
+                footer_about: "సురక్షిత లావాదేవీలు మరియు వేగవంతమైన పేఅవుట్లను అందించే భారతదేశపు అత్యంత నమ్మకమైన ఆన్‌లైన్ గేమింగ్ ప్లాట్‌ఫారమ్.",
+                footer_markets: "టాప్ మార్కెట్లు",
+                footer_support: "మద్దతు & సహాయం",
+                footer_whatsapp: "24x7 వాట్సాప్ సపోర్ట్",
+                footer_faq: "ప్రశ్నలు & నిబంధనలు",
+                footer_terms: "నిబంధనలు & షరతులు",
+                footer_disclaimer_title: "నిరాకరణ",
+                footer_disclaimer_text: "ఈ ప్లాట్‌ఫారమ్‌లో ఆర్థిక రిస్క్ ఉంటుంది. దయచేసి బాధ్యతాయుతంగా ఆడండి. 18+ మాత్రమే.",
+                footer_secure_badge: "🔒 256-బిట్ SSL ఎన్క్రిప్టెడ్ అధికారిక సైట్"
+            },
+            ta: {
+                marquee: "⚡ 100% பாதுகாப்பான & உடனடி வித்டிரா தளம் | 24x7 வாடிக்கையாளர் ஆதரவு ⚡",
+                popup_title: "₹500 இலவச போனஸ் பெறுங்கள்!",
+                popup_desc: "இப்போதே CG Matka அதிகாரப்பூர்வ செயலியை பதிவிறக்கம் செய்து முதல் டெபாசிட்டில் இலவச போனஸ் பெறுங்கள்!",
+                download_now: "செயலியை பதிவிறக்குக",
+                close_popup: "வலைத்தளத்திற்கு செல்",
+                official_partner: "அதிகாரப்பூர்வ கேமிங் மையம்",
+                nav_features: "அம்சங்கள்",
+                nav_games: "மார்க்கெட்டுகள்",
+                nav_proof: "லைவ் ப்ரூஃப்",
+                nav_reviews: "மதிப்புரைகள்",
+                download_app: "APK பதிவிறக்கம்",
+                hero_badge: "இந்தியாவின் மிகவும் நம்பகமான & வேகமான செயலி",
+                hero_title_1: "விளையாடி பெரிய அளவில் வெல்லுங்கள்",
+                hero_title_2: "CG மட்கா அதிகாரப்பூர்வமானது",
+                hero_desc: "மின்னல் வேக டெபாசிட்கள் மற்றும் 1 நிமிட உடனடி வித்டிரா. கல்யாண், ஸ்ரீதேவி, மிலன் நைட் & தென்னிந்திய ஸ்பெஷல்.",
+                feat_speed: "1 நிமிடம்",
+                feat_speed_sub: "வித்டிரா",
+                feat_safe: "100% பாதுகாப்பு",
+                feat_safe_sub: "பாதுகாப்பான கேட்வே",
+                feat_support: "24x7",
+                feat_support_sub: "நேரலை ஆதரவு",
+                cta_download: "APK பதிவிறக்கம் (24MB)",
+                cta_markets: "அனைத்து மார்க்கெட்டுகளையும் காண்க",
+                apk_trusted: "சரிபார்க்கப்பட்ட பாதுகாப்பான APK • ஆண்ட்ராய்டு 7.0+",
+                mockup_wallet: "வாலட் இருப்பு",
+                mockup_deposit: "மொத்த டெபாசிட்",
+                mockup_withdrawal: "மொத்த வித்டிரா",
+                market_running: "● மார்க்கெட் இயங்குகிறது",
+                mockup_fast_download: "உடனடி APK பதிவிறக்கம்",
+                stat_players: "செயலில் உள்ள வீரர்கள்",
+                stat_payouts: "மாதாந்திர பேஅவுட்டுகள்",
+                stat_withdrawal: "சராசரி வித்டிரா",
+                stat_secure: "நம்பகமான தளம்",
+                section_markets_tag: "லைவ் கேமிங் மார்க்கெட்டுகள்",
+                section_markets_title: "சிறந்த தென்னிந்திய & அகில இந்திய மார்க்கெட்டுகள்",
+                section_markets_desc: "ஆந்திரப் பிரதேசம், தெலுங்கானா, கர்நாடகா, தமிழ்நாடு மற்றும் கேரளாவில் அதிக விலைகள் மற்றும் உடனடி பேஅவுட்டுகளுடன் விளையாடுங்கள்.",
+                badge_live: "நேரலை",
+                market_kalyan_desc: " சாதனை ஜாக்பாட் பரிசுகளுடன் இந்தியாவின் மிகவும் பிரபலமான தினசரி மட்கா மார்க்கெட்.",
+                rate_label: "வெற்றி விகிதம்",
+                play_btn: "இப்போது விளையாடுக",
+                market_hyd_desc: "ஆந்திரா மற்றும் தெலுங்கானா வீரர்களுக்கான சிறப்பு உயர் அதிர்வெண் டிராக்கள்.",
+                market_sridevi_desc: "விரைவான முடிவு அறிவிப்புகளுடன் கூடிய மதிய நேர அமர்வுகள்.",
+                market_milan_desc: "லட்சக்கணக்கான வழக்கமான வீரர்களால் நம்பப்படும் உயர் ஸ்டேக்ஸ் மாலை அமர்வு.",
+                market_chennai_desc: "தனிப்பயனாக்கப்பட்ட உள்ளூர் நேரங்களுடன் கூடிய பிராந்திய மார்க்கெட்.",
+                market_rajdhani_desc: "பாரிய ஜாக்பாட் மல்டிப்ளையர்களைக் கொண்ட பிரீமியம் இரவு மார்க்கெட்.",
+                proof_tag: "உண்மையான பேஅவுட் சுவர்",
+                proof_title: "சமீபத்திய வெற்றியாளர் வித்டிராக்கள்",
+                proof_desc: "இன்று நமது வீரர்களின் UPI மற்றும் வங்கி கணக்குகளுக்கு நேரடியாக மாற்றப்பட்ட நிகழ்நேர பேஅவுட்டுகள்.",
+                amount_label: "வித்டிரா செய்யப்பட்டது",
+                why_tag: "நிகரற்ற நன்மை",
+                why_title: "CG மட்கா ஏன் அடுத்த நிலை?",
+                why_desc: "100% பாதுகாப்போடு தொழில்முறை மற்றும் சாதாரண வீரர்களுக்காக வடிவமைக்கப்பட்ட தனித்துவமான அம்சங்கள்.",
+                feat_card1_title: "1-நிமிட உடனடி பேஅவுட்டுகள்",
+                feat_card1_desc: "எப்போது வேண்டுமானாலும் வித்டிரா கோருங்கள், 60 வினாடிகளுக்குள் உங்கள் PhonePe அல்லது Google Pay இல் பணம் பெறுங்கள்.",
+                feat_card2_title: "பல மொழி ஆதரவு",
+                feat_card2_desc: "தெலுங்கு, தமிழ், கன்னடம், மலையாளம், இந்தி மற்றும் ஆங்கிலத்தில் முழுமையாக உள்ளது.",
+                feat_card3_title: "100% பாதுகாப்பான & ஏமாற்று வேலை இல்லாதது",
+                feat_card3_desc: "வங்கி தர 256-பிட் SSL என்க்ரிப்ஷன் மூலம் முழுமையான பாதுகாப்பு.",
+                reviews_tag: "வீரர்களின் சான்றுகள்",
+                reviews_title: "தென்னிந்திய வீரர்கள் என்ன சொல்கிறார்கள்?",
+                rev_1: "\"தென்னிந்தியாவில் சிறந்த மட்கா செயலி! ஒவ்வொரு முறையும் 1 நிமிடத்திற்குள் வித்டிரா வருகிறது. முற்றிலும் நம்பகமானது.\"",
+                rev_2: "\"எளிதான கட்டண கேட்வே கொண்ட சூப்பர் செயலி. தமிழ் ஆதரவு குழு WhatsApp இல் மிகவும் உதவியாக உள்ளது.\"",
+                rev_3: "\"உயர் விகிதங்கள் மற்றும் உடனடி டெபாசிட்டுகள். நான் நேற்று ₹35,000 வென்றேன்.\"",
+                footer_banner_tag: "5,50,000+ வெற்றியாளர்களுடன் இணையுங்கள்",
+                footer_banner_title: "இன்றே CG மட்காவுடன் வெல்லத் தொடங்குங்கள்",
+                footer_banner_desc: "அதிகாரப்பூர்வ செயலியை இப்போதே பதிவிறக்கம் செய்து உங்கள் இலவச வரவேற்பு போனஸைப் பெறுங்கள்.",
+                download_apk_btn: "அதிகாரப்பூர்வ APK பதிவிறக்கம்",
+                footer_about: "பாதுகாப்பான பரிவர்த்தனைகள் மற்றும் மின்னல் வேக பேஅவுட்டுகளை வழங்கும் இந்தியாவின் மிகவும் நம்பகமான ஆன்லைன் கேமிங் தளம்.",
+                footer_markets: "சிறந்த மார்க்கெட்டுகள்",
+                footer_support: "ஆதரவு & உதவி",
+                footer_whatsapp: "24x7 வாட்ஸ்அப் ஆதரவு",
+                footer_faq: "அடிக்கடி கேட்கப்படும் கேள்விகள் & விதிகள்",
+                footer_terms: "விதிமுறைகள் & நிபந்தனைகள்",
+                footer_disclaimer_title: "பொறுப்பு துறப்பு",
+                footer_disclaimer_text: "இந்தத் தளத்தில் நிதி ஆபத்து உள்ளது. தயவுசெய்து பொறுப்புடன் விளையாடுங்கள். 18+ மட்டும்.",
+                footer_secure_badge: "🔒 256-பிட் SSL என்க்ரிப்ட் செய்யப்பட்ட அதிகாரப்பூர்வ தளம்"
+            },
+            kn: {
+                marquee: "⚡ 100% ಸುರಕ್ಷಿತ ಮತ್ತು ತಕ್ಷಣದ ವಿತ್‌ಡ್ರಾ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ | 24x7 ಗ್ರಾಹಕ ಬೆಂಬಲ ⚡",
+                popup_title: "₹500 ಉಚಿತ ಬೋನಸ್ ಪಡೆಯಿರಿ!",
+                popup_desc: "ಈಗಲೇ CG Matka ಅಧಿಕೃತ ಅಪ್ಲಿಕೇಶನ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಮೊದಲ ಡೆಪಾಜಿಟ್ ಮೇಲೆ ಬೋನಸ್ ಪಡೆಯಿರಿ!",
+                download_now: "ಅಪ್ಲಿಕೇಶನ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+                close_popup: "ವೆಬ್‌ಸೈಟ್‌ಗೆ ಮುಂದುವರಿಯಿರಿ",
+                official_partner: "ಅಧಿಕೃತ గేమిಂಗ್ ಹಬ್",
+                nav_features: "ವೈಶಿಷ್ಟ್ಯಗಳು",
+                nav_games: "ಮಾರ್ಕೆಟ್‌ಗಳು",
+                nav_proof: "ಲೈವ್ ಪ್ರೂಫ್",
+                nav_reviews: "ವಿಮರ್ಶೆಗಳು",
+                download_app: "APK ಡೌನ್‌ಲೋಡ್",
+                hero_badge: "ಭಾರತದ ಅತ್ಯಂತ ವಿಶ್ವಾಸಾರ್ಹ & ವೇಗದ ಅಪ್ಲಿಕೇಶನ್",
+                hero_title_1: "ಆಡಿ ದೊಡ್ಡ ಮೊತ್ತವನ್ನು ಗೆದ್ದಿರಿ",
+                hero_title_2: "CG ಮಟ್ಕಾ ಅಧಿಕೃತ",
+                hero_desc: "ಮಿಂಚಿನ ವೇಗದ ಡೆಪಾಜಿಟ್‌ಗಳು ಮತ್ತು 1 ನಿಮಿಷದ ಇನ್‌ಸ್ಟಂಟ್ ವಿತ್‌ಡ್ರಾ. ಕಲ್ಯಾಣ್, ಶ್ರೀದೇವಿ, ಮಿಲನ್ ನೈಟ್ & ಸೌತ್ ಇಂಡಿಯಾ ಸ್ಪೆಷಲ್.",
+                feat_speed: "1 ನಿಮಿಷ",
+                feat_speed_sub: "ವಿತ್‌ಡ್ರಾ",
+                feat_safe: "100% ಸುರಕ್ಷಿತ",
+                feat_safe_sub: "ಸುರಕ್ಷಿತ ಗೇಟ್‌ವೇ",
+                feat_support: "24x7",
+                feat_support_sub: "ಲೈವ್ ಬೆಂಬಲ",
+                cta_download: "APK ಡೌನ್‌ಲೋಡ್ (24MB)",
+                cta_markets: "ಎಲ್ಲಾ ಮಾರ್ಕೆಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+                apk_trusted: "ಪರಿಶೀಲಿಸಿದ ಸುರಕ್ಷಿತ APK • ಆಂಡ್ರಾಯ್ಡ್ 7.0+",
+                mockup_wallet: "ವಾಲೆಟ್ ಬ್ಯಾಲೆನ್ಸ್",
+                mockup_deposit: "ಒಟ್ಟು ಡೆಪಾಜಿಟ್",
+                mockup_withdrawal: "ಒಟ್ಟು ವಿತ್‌ಡ್ರಾ",
+                market_running: "● ಮಾರ್ಕೆಟ್ ಚಾಲನೆಯಲ್ಲಿದೆ",
+                mockup_fast_download: "ಇನ್‌ಸ್ಟಂಟ್ APK ಡೌನ್‌ಲೋಡ್",
+                stat_players: "ಸಕ್ರಿಯ ಆಟಗಾರರು",
+                stat_payouts: "ಮಾಸಿಕ ಪೇಔಟ್‌ಗಳು",
+                stat_withdrawal: "ಸರಾಸರಿ ವಿತ್‌ಡ್ರಾ",
+                stat_secure: "ವಿಶ್ವಾಸಾರ್ಹ ವೇದಿಕೆ",
+                section_markets_tag: "ಲೈವ್ గేమిಂಗ್ ಮಾರ್ಕೆಟ್‌ಗಳು",
+                section_markets_title: "ಟಾಪ್ ಸೌತ್ & ಆಲ್ ಇಂಡಿಯಾ ಮಾರ್ಕೆಟ್‌ಗಳು",
+                section_markets_desc: "ಆಂಧ್ರಪ್ರದೇಶ, ತೆಲಂಗಾಣ, ಕರ್ನಾಟಕ, ತಮಿಳುನಾಡು ಮತ್ತು ಕೇರಳದಲ್ಲಿ ಅತ್ಯಧಿಕ ದರಗಳು ಮತ್ತು ಇನ್‌ಸ್ಟಂಟ್ ಪೇಔಟ್‌ಗಳೊಂದಿಗೆ ಆಡಿ.",
+                badge_live: "ಲೈವ್ ನೌ",
+                market_kalyan_desc: "ದಾಖಲೆಯ ಜಾಕ್‌ಪಾಟ್ ಬಹುಮಾನಗಳೊಂದಿಗೆ ಭಾರತದ ಅತ್ಯಂತ ಜನಪ್ರಿಯ ದೈನಂದಿನ ಮಟ್ಕಾ ಮಾರ್ಕೆಟ್.",
+                rate_label: "ಗೆಲುವಿನ ದರ",
+                play_btn: "ಈಗ ಆಡಿ",
+                market_hyd_desc: "ಆಂಧ್ರ & ತೆಲಂಗಾಣ ಆಟಗಾರರಿಗಾಗಿ ವಿಶೇಷ ಹೈ-ಫ್ರೀಕ್ವೆನ್ಸಿ ಡ್ರಾಗಳು.",
+                market_sridevi_desc: "ತ್ವರಿತ ಫಲಿತಾಂಶಗಳೊಂದಿಗೆ ವೇಗದ ಮಧ್ಯಾಹ್ನದ ಸೆಷನ್‌ಗಳು.",
+                market_milan_desc: "ಲಕ್ಷಾಂತರ ನಿಯಮಿತ ಆಟಗಾರರಿಂದ ನಂಬಲಾದ ಹೈ ಸ್ಟೇಕ್ಸ್ ಸಂಜೆ ಸೆಷನ್.",
+                market_chennai_desc: "ಕಸ್ಟಮೈಸ್ ಮಾಡಿದ ಸ್ಥಳೀಯ ಸಮಯಗಳೊಂದಿಗೆ ಪ್ರಾದೇಶಿಕ ಮಾರ್ಕೆಟ್.",
+                market_rajdhani_desc: "ಭಾರೀ ಜಾಕ್‌ಪಾಟ್ ಮಲ್ಟಿಪ್ಲೈಯರ್‌ಗಳನ್ನು ಹೊಂದಿರುವ ಪ್ರೀಮಿಯಂ ನೈಟ್ ಮಾರ್ಕೆಟ್.",
+                proof_tag: "ರಿಯಲ್ ಪೇಔಟ್ ವಾಲ್",
+                proof_title: "ಇತ್ತೀಚಿನ ವಿಜೇತರ ವಿತ್‌ಡ್ರಾಗಳು",
+                proof_desc: "ಇಂದು ನಮ್ಮ ಆಟಗಾರರ UPI ಮತ್ತು ಬ್ಯಾಂಕ್ ಖಾತೆಗಳಿಗೆ ನೇರವಾಗಿ ವರ್ಗಾಯಿಸಲಾದ ನೈಜ-ಸಮಯದ ಪೇಔಟ್‌ಗಳು.",
+                amount_label: "ವಿತ್‌ಡ್ರಾ ಮಾಡಲಾಗಿದೆ",
+                why_tag: "ಅನನ್ಯ ಪ್ರಯೋಜನ",
+                why_title: "CG ಮಟ್ಕಾ ಏಕೆ ಮುಂದಿನ ಹಂತದಲ್ಲಿದೆ?",
+                why_desc: "100% ಭದ್ರತೆಯೊಂದಿಗೆ ವೃತ್ತಿಪರ ಮತ್ತು ಸಾಂದರ್ಭಿಕ ಆಟಗಾರರಿಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ವಿಶೇಷ ವೈಶಿಷ್ಟ್ಯಗಳು.",
+                feat_card1_title: "1-ನಿಮಿಷದ ಇನ್‌ಸ್ಟಂಟ್ ಪೇಔಟ್‌ಗಳು",
+                feat_card1_desc: "ಯಾವಾಗ வேண்டுமானರೂ ವಿತ್‌ಡ್ರಾ ವಿನಂತಿಸಿ, 60 ಸೆಕೆಂಡುಗಳಲ್ಲಿ ನಿಮ್ಮ PhonePe ಅಥವಾ Google Payಗೆ ಹಣ ಪಡೆಯಿರಿ.",
+                feat_card2_title: "ಬಹುಭಾಷಾ ಬೆಂಬಲ",
+                feat_card2_desc: "ತೆಲುಗು, தமிழ், ಕನ್ನಡ, ಮಲಯಾಳಂ, ಹಿಂದಿ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಸಂಪೂರ್ಣವಾಗಿ ಲಭ್ಯವಿದೆ.",
+                feat_card3_title: "100% ಸುರಕ್ಷಿತ & ಚೀಟ್-ಫ್ರೀ",
+                feat_card3_desc: "ಬ್ಯಾಂಕ್-ಗ್ರೇಡ್ 256-ಬಿಟ್ SSL ಎನ್‌ಕ್ರಿಪ್ಶನ್‌ನೊಂದಿಗೆ ಸಂಪೂರ್ಣ ಭದ್ರತೆ.",
+                reviews_tag: "ಆಟಗಾರರ ಪ್ರಶಂಸಾಪತ್ರಗಳು",
+                reviews_title: "ದಕ್ಷಿಣ ಭಾರತದ ಆಟಗಾರರು ಏನು ಹೇಳುತ್ತಾರೆ?",
+                rev_1: "\"ದಕ್ಷಿಣ ಭಾರತದಲ್ಲಿ ಅತ್ಯುತ್ತಮ ಮಟ್ಕಾ ಅಪ್ಲಿಕೇಶನ್! ಪ್ರತಿ ಬಾರಿಯೂ 1 ನಿಮಿಷದಲ್ಲಿ ವಿತ್‌ಡ್ರಾ ಬರುತ್ತದೆ. ಸಂಪೂರ್ಣವಾಗಿ ವಿಶ್ವಾಸಾರ್ಹ.\"",
+                rev_2: "\"ಸುಲಭ ಪಾವತಿ ಗೇಟ್‌ವೇ ಹೊಂದಿರುವ ಸೂಪರ್ ಅಪ್ಲಿಕೇಶನ್. ಕನ್ನಡ ಬೆಂಬಲ ತಂಡ WhatsApp ನಲ್ಲಿ ತುಂಬಾ ಸಹಾಯಕವಾಗಿದೆ.\"",
+                rev_3: "\"ಉನ್ನತ ದರಗಳು ಮತ್ತು ತಕ್ಷಣದ ಡೆಪಾಜಿಟ್‌ಗಳು. ನಾನು ನಿನ್ನೆ ₹35,000 ಗೆದ್ದಿದ್ದೇನೆ.\"",
+                footer_banner_tag: "5,50,000+ ವಿಜೇತರೊಂದಿಗೆ ಸೇರಿ",
+                footer_banner_title: "ಇಂದೇ CG ಮಟ್ಕಾದೊಂದಿಗೆ ಗೆಲ್ಲಲು ಪ್ರಾರಂಭಿಸಿ",
+                footer_banner_desc: "ಅಧಿಕೃತ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ, ನಿಮ್ಮ ಉಚಿತ ಸ್ವಾಗತ ಬೋನಸ್ ಅನ್ನು ಪಡೆದುಕೊಳ್ಳಿ.",
+                download_apk_btn: "ಅಧಿಕೃತ APK ಡೌನ್‌ಲೋಡ್",
+                footer_about: "ಸುರಕ್ಷಿತ ವಹಿವಾಟುಗಳು ಮತ್ತು ಮಿಂಚಿನ ವೇಗದ ಪೇಔಟ್‌ಗಳನ್ನು ನೀಡುವ ಭಾರತದ ಅತ್ಯಂತ ವಿಶ್ವಾಸಾರ್ಹ ಆನ್‌ಲೈನ್ గేమిಂಗ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
+                footer_markets: "ಟಾಪ್ ಮಾರ್ಕೆಟ್‌ಗಳು",
+                footer_support: "ಬೆಂಬಲ & ಸಹಾಯ",
+                footer_whatsapp: "24x7 ವಾಟ್ಸಾಪ್ ಬೆಂಬಲ",
+                footer_faq: "FAQ & ನಿಯಮಗಳು",
+                footer_terms: "ನಿಯಮಗಳು & ಷರತ್ತುಗಳು",
+                footer_disclaimer_title: "ಹಕ್ಕುತ್ಯಾಗ",
+                footer_disclaimer_text: "ಈ ವೇದಿಕೆಯು ಆರ್ಥಿಕ ಅಪಾಯವನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ. ದಯವಿಟ್ಟು ಜವಾಬ್ದಾರಿಯುತವಾಗಿ ಆಡಿ. 18+ ಮಾತ್ರ.",
+                footer_secure_badge: "🔒 256-ಬಿಟ್ SSL ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಅಧಿಕೃತ ಸೈಟ್"
+            },
+            ml: {
+                marquee: "⚡ 100% സുരക്ഷിതവും തൽക്ഷണവുമായ വിത്ഡ്രോവൽ പ്ലാറ്റ്‌ഫോം | 24x7 കസ്റ്റമർ സപ്പോർട്ട് ⚡",
+                popup_title: "₹500 സൗജന്യ ബോണസ് നേടൂ!",
+                popup_desc: "ഇപ്പോൾ തന്നെ CG Matka ഒഫീഷ്യൽ ആപ്പ് ഡൗൺലോഡ് ചെയ്ത് ആദ്യ നിക്ഷേപത്തിന് ബോണസ് നേടൂ!",
+                download_now: "ആപ്പ് ഡൗൺലോഡ് ചെയ്യുക",
+                close_popup: "വെബ്‌സൈറ്റിലേക്ക് പോവുക",
+                official_partner: "ഔദ്യോഗിക ഗെയിമിംഗ് ഹബ്",
+                nav_features: "സവിശേഷതകൾ",
+                nav_games: "മാർക്കറ്റുകൾ",
+                nav_proof: "ലൈവ് പ്രൂഫ്",
+                nav_reviews: "വിലയിരുത്തലുകൾ",
+                download_app: "APK ഡൗൺലോഡ്",
+                hero_badge: "ഇന്ത്യയിലെ ഏറ്റവും വിശ്വസ്തവും വേഗതയേറിയതുമായ ആപ്പ്",
+                hero_title_1: "കളിച്ച് വലിയ വിജയം നേടൂ",
+                hero_title_2: "CG മട്ക ഒഫീഷ്യൽ",
+                hero_desc: "മിന്നൽ വേഗതയിലുള്ള നിക്ഷേപങ്ങളും 1 മിനിറ്റ് തൽക്ഷണ പിൻവലിക്കലും. കല്യാൺ, ശ്രീദേവി, മിലൻ നൈറ്റ് & സൗത്ത് ഇന്ത്യ സ്പെഷ്യൽ.",
+                feat_speed: "1 മിനിറ്റ്",
+                feat_speed_sub: "വിത്ഡ്രോവൽ",
+                feat_safe: "100% സുരക്ഷിതം",
+                feat_safe_sub: "സേഫ് ഗേറ്റ്‌വേ",
+                feat_support: "24x7",
+                feat_support_sub: "ലൈവ് സപ്പോർട്ട്",
+                cta_download: "APK ഡൗൺലോഡ് (24MB)",
+                cta_markets: "എല്ലാ മാർക്കറ്റുകളും കാണുക",
+                apk_trusted: "പരിശോധിച്ച സുരക്ഷിത APK • ആൻഡ്രോയിഡ് 7.0+",
+                mockup_wallet: "വാലറ്റ് ബാലൻസ്",
+                mockup_deposit: "ആകെ നിക്ഷേപം",
+                mockup_withdrawal: "ആകെ പിൻവലിച്ചത്",
+                market_running: "● മാർക്കറ്റ് ലൈവിലാണ്",
+                mockup_fast_download: "തൽക്ഷണ APK ഡൗൺലോഡ്",
+                stat_players: "സജീവ കളിക്കാർ",
+                stat_payouts: "പ്രതിമാസ പേഔട്ടുകൾ",
+                stat_withdrawal: "ശരാശരി വിത്ഡ്രോവൽ",
+                stat_secure: "വിശ്വസനീയ പ്ലാറ്റ്‌ഫോം",
+                section_markets_tag: "ലൈവ് ഗെയിമിംഗ് മാർക്കറ്റുകൾ",
+                section_markets_title: "ടോപ്പ് സൗത്ത് & ഓൾ ഇന്ത്യ മാർക്കറ്റുകൾ",
+                section_markets_desc: "ആന്ധ്രാപ്രദേശ്, തെലങ്കാന, കർണാടകം, തമിഴ്‌നാട്, കേരളം എന്നിവിടങ്ങളിൽ ഉയർന്ന നിരക്കിലും തൽക്ഷണ പേഔട്ടുകളോടും കൂടി കളിക്കൂ.",
+                badge_live: "ലൈവ് നൗ",
+                market_kalyan_desc: "റെക്കോർഡ് ജാക്ക്‌പോട്ട് സമ്മാനങ്ങളുള്ള ഇന്ത്യയിലെ ഏറ്റവും ജനപ്രിയമായ ഡെയ്‌ലി മാർക്കറ്റ്.",
+                rate_label: "വിജയ നിരക്ക്",
+                play_btn: "ഇപ്പോൾ കളിക്കുക",
+                market_hyd_desc: "ആന്ധ്രാ & തെലങ്കാന കളിക്കാർക്കായി പ്രത്യേക ഹൈ-ഫ്രീക്വൻസി ഡ്രോകൾ.",
+                market_sridevi_desc: "പെട്ടെന്നുള്ള ഫല പ്രഖ്യാപനങ്ങളുള്ള ഉച്ചതിരിഞ്ഞുള്ള സെഷനുകൾ.",
+                market_milan_desc: "ലക്ഷക്കണക്കിന് സ്ഥിര കളിക്കാർ വിശ്വസിക്കുന്ന ഹൈ സ്റ്റേക്സ് സായാഹ്ന സെഷൻ.",
+                market_chennai_desc: "ഇഷ്ടാനുസൃതമാക്കിയ പ്രാദേശിക സമയങ്ങളുള്ള റീജിയണൽ മാർക്കറ്റ്.",
+                market_rajdhani_desc: "വലിയ ജാക്ക്‌പോട്ട് മൾട്ടിപ്ലയറുകളുള്ള പ്രീമിയം നൈറ്റ് മാർക്കറ്റ്.",
+                proof_tag: "റിയൽ പേഔട്ട് വാൾ",
+                proof_title: "സമീപകാല വിജയികളുടെ പിൻവലിക്കലുകൾ",
+                proof_desc: "ഇന്ന് ഞങ്ങളുടെ കളിക്കാരുടെ UPI, ബാങ്ക് അക്കൗണ്ടുകളിലേക്ക് നേരിട്ട് കൈമാറിയ തത്സമയ പേഔട്ടുകൾ.",
+                amount_label: "പിൻവലിച്ചത്",
+                why_tag: "തുല്യതയില്ലാത്ത നേട്ടം",
+                why_title: "എന്തുകൊണ്ട് CG മട്ക അടുത്ത ലെവൽ ആകുന്നു?",
+                why_desc: "100% സുരക്ഷയോടെ പ്രൊഫഷണൽ, കാഷ്വൽ കളിക്കാർക്കായി രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്ന സവിശേഷതകൾ.",
+                feat_card1_title: "1-മിനിറ്റ് തൽക്ഷണ പേഔട്ടുകൾ",
+                feat_card1_desc: "എപ്പോൾ വേണമെങ്കിലും പിൻവലിക്കൽ ആവശ്യപ്പെടാം, 60 സെക്കൻഡിനുള്ളിൽ PhonePe അല്ലെങ്കിൽ Google Pay വഴി പണം നേടൂ.",
+                feat_card2_title: "ബഹുഭാഷാ പിന്തുണ",
+                feat_card2_desc: "തെലുങ്ക്, തമിഴ്, കന്നഡ, മലയാളം, ഹിന്ദി, ഇംഗ്ലീഷ് ഭാഷകളിൽ ലഭ്യമാണ്.",
+                feat_card3_title: "100% സുരക്ഷിതം & ചീറ്റ്-ഫ്രീ",
+                feat_card3_desc: "ബാങ്ക് ഗ്രേഡ് 256-ബിറ്റ് SSL എൻക്രിപ്ഷൻ ഉപയോഗിച്ച് സമ്പൂർണ്ണ സുരക്ഷ.",
+                reviews_tag: "കളിക്കാരുടെ അഭിപ്രായങ്ങൾ",
+                reviews_title: "തെക്കേ ഇന്ത്യയിലെ കളിക്കാർ എന്ത് പറയുന്നു?",
+                rev_1: "\"മികച്ച മട്ക ആപ്പ്! എല്ലാ തവണയും 1 മിനിറ്റിനുള്ളിൽ വിത്ഡ്രോവൽ ലഭിക്കും. തികച്ചും വിശ്വസനീയമാണ്.\"",
+                rev_2: "\"എളുപ്പമുള്ള പേയ്‌മെന്റ് ഗേറ്റ്‌വേയുള്ള സൂപ്പർ ആപ്പ്. മലയാളം സപ്പോർട്ട് ടീം വളരെ സഹായിക്കുന്നു.\"",
+                rev_3: "\"ഉയർന്ന നിരക്കുകളും തൽക്ഷണ നിക്ഷേപങ്ങളും. ഞാൻ ഇന്നലെ ₹35,000 വിജയിച്ചു.\"",
+                footer_banner_tag: "5,50,000+ വിജയികൾക്കൊപ്പം ചേരൂ",
+                footer_banner_title: "ഇന്ന് തന്നെ CG മട്കയിലൂടെ വിജയം ആരംഭിക്കൂ",
+                footer_banner_desc: "ഔദ്യോഗിക ആപ്ലിക്കേഷൻ ഡൗൺലോഡ് ചെയ്ത് നിങ്ങളുടെ സൗജന്യ സ്വാഗത ബോനസ് നേടൂ.",
+                download_apk_btn: "ഔദ്യോഗിക APK ഡൗൺലോഡ്",
+                footer_about: "സുരക്ഷിത ഇടപാടുകളും മിന്നൽ വേഗതയിലുള്ള പേഔട്ടുകളും വാഗ്ദാനം ചെയ്യുന്ന ഇന്ത്യയിലെ ഏറ്റവും വിശ്വസ്തമായ ഓൺലൈൻ ഗെയിമിംഗ് പ്ലാറ്റ്‌ഫോം.",
+                footer_markets: "പ്രധാന മാർക്കറ്റുകൾ",
+                footer_support: "സപ്പോർട്ട് & സഹായം",
+                footer_whatsapp: "24x7 വാട്സാപ്പ് സപ്പോർട്ട്",
+                footer_faq: "FAQ & നിയമങ്ങൾ",
+                footer_terms: "നിബന്ധനകളും വ്യവസ്ഥകളും",
+                footer_disclaimer_title: "നിരാകരണം",
+                footer_disclaimer_text: "ഈ പ്ലാറ്റ്‌ഫോമിൽ സാമ്പത്തിക റിസ്ക് ഉൾപ്പെട്ടിരിക്കുന്നു. ദയവായി ഉത്തരവാദിത്തത്തോടെ കളിക്കുക. 18+ മാത്രം.",
+                footer_secure_badge: "🔒 256-ബിറ്റ് SSL എൻക്രിപ്റ്റ് ചെയ്ത ഔദ്യോഗിക സൈറ്റ്"
+            },
+            hi: {
+                marquee: "⚡ 100% सुरक्षित और इंस्टेंट विथड्रॉवल प्लेटफॉर्म | 24x7 कस्टमर सपोर्ट ⚡",
+                popup_title: "₹500 फ्री बोनस पाएं!",
+                popup_desc: "अभी CG Matka ऑफिशियल ऐप डाउनलोड करें और अपने पहले डिपॉजिट पर इंस्टेंट वेलकम बोनस पाएं!",
+                download_now: "ऐप डाउनलोड करें",
+                close_popup: "वेबसाइट पर जाएं",
+                official_partner: "ऑफिशियल गेमिंग हब",
+                nav_features: "विशेषताएं",
+                nav_games: "मार्केट्स",
+                nav_proof: "लाइव प्रूफ",
+                nav_reviews: "समीक्षाएं",
+                download_app: "APK डाउनलोड",
+                hero_badge: "भारत का सबसे भरोसेमंद और तेज ऐप",
+                hero_title_1: "खेलें और भारी जीत हासिल करें",
+                hero_title_2: "CG मटका ऑफिशियल",
+                hero_desc: "बिजली की तरह तेज डिपॉजिट और 1 मिनट का इंस्टेंट विथड्रॉवल। कल्याण, श्रीदेवी, मिलन नाइट और साउथ इंडिया स्पेशल मार्केट्स।",
+                feat_speed: "1 मिनट",
+                feat_speed_sub: "विथड्रॉवल",
+                feat_safe: "100% सुरक्षित",
+                feat_safe_sub: "सुरक्षित गेटवे",
+                feat_support: "24x7",
+                feat_support_sub: "लाइव सपोर्ट",
+                cta_download: "APK डाउनलोड (24MB)",
+                cta_markets: "सभी मार्केट्स देखें",
+                apk_trusted: "वेरिफाइड सिक्योर APK • एंड्रॉइड 7.0+",
+                mockup_wallet: "वॉलेट बैलेंस",
+                mockup_deposit: "कुल डिपॉजिट",
+                mockup_withdrawal: "कुल विथड्रॉवल",
+                market_running: "● मार्केट चालू है",
+                mockup_fast_download: "इंस्टेंट APK डाउनलोड",
+                stat_players: "सक्रिय खिलाड़ी",
+                stat_payouts: "मासिक पेआउट",
+                stat_withdrawal: "औसत विथड्रॉवल",
+                stat_secure: "भरोसेमंद प्लेटफॉर्म",
+                section_markets_tag: "लाइव गेमिंग मार्केट्स",
+                section_markets_title: "टॉप साउथ और ऑल इंडिया मार्केट्स",
+                section_markets_desc: "आंध्र प्रदेश, तेलंगाना, कर्नाटक, तमिलनाडु और केरल में उच्चतम दरों और सुनिश्चित इंस्टेंट पेआउट के साथ खेलें।",
+                badge_live: "लाइव",
+                market_kalyan_desc: "रिकॉर्ड जैकपॉट पुरस्कारों के साथ भारत का सबसे लोकप्रिय दैनिक मटका मार्केट।",
+                rate_label: "जीत की दर",
+                play_btn: "अभी खेलें",
+                market_hyd_desc: "आंध्र और तेलंगाना के खिलाड़ियों के लिए विशेष हाई-फ्रीक्वेंसी ड्रॉ।",
+                market_sridevi_desc: "त्वरित परिणाम घोषणाओं के साथ तेज दोपहर के सत्र।",
+                market_milan_desc: "लाखों नियमित खिलाड़ियों द्वारा भरोसेमंद हाई स्टेक्स शाम का सत्र।",
+                market_chennai_desc: "अनुकूलित स्थानीय समय के साथ समर्पित क्षेत्रीय बाजार।",
+                market_rajdhani_desc: "भारी जैकपॉट मल्टीप्लायरों वाला प्रीमियम नाइट मार्केट।",
+                proof_tag: "रियल पेआउट वॉल",
+                proof_title: "हालिया विजेता विथड्रॉवल",
+                proof_desc: "आज हमारे खिलाड़ियों के UPI और बैंक खातों में सीधे ट्रांसफर किए गए रीयल-टाइम पेआउट्स।",
+                amount_label: "विथड्रॉ किया गया",
+                why_tag: "बेजोड़ फायदा",
+                why_title: "CG मटका क्यों है नेक्स्ट लेवल?",
+                why_desc: "100% सुरक्षा के साथ पेशेवर और कैजुअल खिलाड़ियों के लिए तैयार की गई विशेष विशेषताएं।",
+                feat_card1_title: "1-मिनट इंस्टेंट पेआउट",
+                feat_card1_desc: "किसी भी समय विथड्रॉवल का अनुरोध करें और 60 सेकंड के भीतर अपने PhonePe या Google Pay में पैसे प्राप्त करें।",
+                feat_card2_title: "बहु-भाषा समर्थन",
+                feat_card2_desc: "तेलुगु, तमिल, कन्नड़, मलयालम, हिंदी और अंग्रेजी में पूरी तरह उपलब्ध।",
+                feat_card3_title: "100% सुरक्षित और एंटी-चीट",
+                feat_card3_desc: "बैंक-ग्रेड 256-बिट SSL एन्क्रिप्शन के साथ आपकी जमा राशि की पूरी सुरक्षा।",
+                reviews_tag: "खिलाड़ियों की समीक्षाएं",
+                reviews_title: "साउथ इंडिया के खिलाड़ी क्या कहते हैं?",
+                rev_1: "\"साउथ राज्यों में सबसे अच्छा मटका ऐप! हर बार 1 मिनट के भीतर विथड्रॉवल मिलता है। पूरी तरह भरोसेमंद।\"",
+                rev_2: "\"आसान पेमेंट गेटवे के साथ सुपर ऐप। तेलुगु और तमिल सपोर्ट टीम WhatsApp पर बहुत मददगार है।\"",
+                rev_3: "\"उच्च दरें और त्वरित जमा। मैंने कल ₹35,000 जीते और बैंक में तुरंत पैसे मिले।\"",
+                footer_banner_tag: "5,50,000+ विजेताओं से जुड़ें",
+                footer_banner_title: "आज ही CG मटका के साथ जीतना शुरू करें",
+                footer_banner_desc: "आधिकारिक एप्लिकेशन डाउनलोड करें, अपना मुफ्त स्वागत बोनस प्राप्त करें और भारत के सबसे तेज गेमिंग प्लेटफॉर्म का अनुभव करें।",
+                download_apk_btn: "ऑफिशियल APK डाउनलोड",
+                footer_about: "सुरक्षित लेनदेन और बिजली की तरह तेज पेआउट प्रदान करने वाला भारत का सबसे भरोसेमंद ऑनलाइन गेमिंग प्लेटफॉर्म।",
+                footer_markets: "टॉप मार्केट्स",
+                footer_support: "सपोर्ट और मदद",
+                footer_whatsapp: "24x7 व्हाट्सएप सपोर्ट",
+                footer_faq: "FAQ और नियम",
+                footer_terms: "नियम और शर्तें",
+                footer_disclaimer_title: "अस्वीकरण",
+                footer_disclaimer_text: "इस प्लेटफॉर्म में वित्तीय जोखिम शामिल है। कृपया जिम्मेदारी से खेलें। केवल 18+।",
+                footer_secure_badge: "🔒 256-बिट SSL एन्क्रिप्टेड ऑफिशियल साइट"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const dict = translations[lang];
+            if (!dict) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+
+            // Update marquee
+            const marquee = document.getElementById('marquee-text');
+            if (marquee && dict['marquee']) {
+                marquee.innerText = dict['marquee'];
+            }
+        }
+    </script>
+</body>
+</html>
